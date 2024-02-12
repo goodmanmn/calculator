@@ -1,13 +1,154 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Lucinda Console", "Courier New", monospace;
+  font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --border-width: 3px;
+  --border-radius: 10px;
+  --dark-color: hsl(119, 81%, 34%);
+  --display-background-color: hsla(119, 24%, 87%, 0.5);
+  --button-background-color: hsla(119, 59%, 70%, 0.9);
+  --equals-background-color: hsla(119, 57%, 55%, 0.9);
+  --alt-dark-color: hsl(329, 100%, 40%);
+  --alt-display-background-color: hsla(329, 55%, 73%, 0.5);
+  --alt-button-background-color: hsla(329, 55%, 73%, 0.9);
+  --alt-equals-color: hsla(329, 69%, 65%, 0.9);
+  --button-hover-dark-color: hsla(0, 0%, 44%, 0.9);
+  --button-hover-light-color: hsla(329, 1%, 80%, 0.9);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url("../public/leaves_1920x1920.png");
+  overflow: hidden;
+}
+
+p {
+  display: block;
+  text-align: right;
+  overflow-wrap: break-word;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: var(--dark-color) solid var(--border-width);
+  border-radius: var(--border-radius);
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: var(--display-background-color);
+  color: var(--dark-color);
+  font-size: 1.7rem;
+  min-height: 2rem;
+}
+p:nth-child(1) {
+  background-color: var(--alt-display-background-color);
+  border-color: var(--alt-dark-color);
+  color: var(--alt-dark-color);
+}
+
+.calculator {
+  height: 400px;
+  width: 300px;
+  margin: auto;
+}
+.buttons {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+.button {
+  border: var(--dark-color) solid var(--border-width);
+  border-radius: var(--border-radius);
+  color: var(--dark-color);
+  background-color: var(--button-background-color);
+  font-size: 1.2rem;
+}
+.button:hover {
+  border-color: var(--button-hover-dark-color);
+  color: var(--button-hover-dark-color);
+  background-color: var(--button-hover-light-color);
+}
+.button:active {
+  background-color: var(--alt-button-background-color);
+  color: var(--alt-dark-color);
+  border-color: var(--alt-dark-color);
+}
+
+#equals {
+  background-color: var(--equals-background-color);
+  grid-area: 4 / 4 / span 2 / span 1;
+}
+#equals:hover {
+  background-color: var(--button-hover-light-color);
+}
+#equals:active {
+  background-color: var(--alt-equals-color);
+}
+#zero {
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+#one {
+  grid-area: 4 / 1 / span 1 / span 1;
+}
+#two {
+  grid-area: 4 / 2 / span 1 / span 1;
+}
+#three {
+  grid-area: 4 / 3 / span 1 / span 1;
+}
+#four {
+  grid-area: 3 / 1 / span 1 / span 1;
+}
+#five {
+  grid-area: 3 / 2 / span 1 / span 1;
+}
+#six {
+  grid-area: 3 / 3 / span 1 / span 1;
+}
+#seven {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+#eight {
+  grid-area: 2 / 2 / span 1 / span 1;
+}
+#nine {
+  grid-area: 2 / 3 / span 1 / span 1;
+}
+#add {
+  grid-area: 3 / 4 / span 1 / span 1;
+}
+#subtract {
+  grid-area: 2 / 4 / span 1 / span 1;
+}
+#multiply {
+  grid-area: 1 / 4 / span 1 / span 1;
+}
+#divide {
+  grid-area: 1 / 3 / span 1 / span 1;
+}
+#decimal {
+  grid-area: 5 / 3 / span 1 / span 1;
+}
+#clear {
+  background-color: var(--alt-equals-color);
+  color: var(--alt-dark-color);
+  border-color: var(--alt-dark-color);
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+#clear:hover {
+  background-color: var(--button-hover-light-color);
+  color: var(--button-hover-dark-color);
+  border-color: var(--button-hover-dark-color);
+}
+#clear:active {
+  background-color: var(--equals-background-color);
+  border-color: var(--dark-color);
+  color: var(--dark-color);
 }
